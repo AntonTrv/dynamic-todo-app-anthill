@@ -1,25 +1,28 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import TodoList from "./components/TodoList";
+import {Container} from "@material-ui/core";
+import ListItems from "./components/ListItems";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 
-function App() {
+
+const App = () => {
+
+    // To all reviewers:
+    // It was my first experience with TypeScript implementation. Redux is something that I may not know well, but I'm working in out.
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <React.Fragment>
+          <Container maxWidth="sm">
+              <BrowserRouter>
+                  <Switch>
+                      <Route path="/" exact component={TodoList}/>
+                      <Route path={"/item"} component={ListItems}/>
+                  </Switch>
+              </BrowserRouter>
+
+          </Container>
+      </React.Fragment>
   );
 }
 
